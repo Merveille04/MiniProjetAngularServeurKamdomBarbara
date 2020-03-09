@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<world
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='worldSchema.xsd'>
+    <name>Terre</name>
+    <logo>D:\Mes cours\4A\Mini Projet Angular\terre.jpg</logo>
+    <money>10</money>
+    <score>0</score>
+    <totalangels>0</totalangels>
+    <activeangels>1</activeangels>
+    <angelbonus>0,02</angelbonus>
+    <lastupdate>1</lastupdate>
+    <products>
+        <product>
+            <id>1</id>
+            <name>Orange</name>
+            <logo>D:\Mes cours\4A\Mini Projet Angular\orange.jpg</logo>
+            <cout>3</cout>
+            <croissance>1,07</croissance>
+            <revenu>2</revenu>
+            <vitesse>5000</vitesse>
+            <quantite>0</quantite>
+            <timeleft>3000</timeleft>
+            <managerUnlocked>false</managerUnlocked>
+            <palliers>
+                <pallier>
+                    <name>orange Step 1</name>
+                    <logo>D:\Mes cours\4A\Mini Projet Angular\1.png</logo>
+                    <seuil>2000</seuil>
+                    <idcible>0</idcible>
+                    <ratio>0,03</ratio>
+                    <typeratio>vitesse</typeratio>
+                    <unlocked>false</unlocked>
+                </pallier>
+                <pallier>
+                    <name>orange Step 2</name>
+                    <logo>D:\Mes cours\4A\Mini Projet Angular\2.png</logo>
+                    <seuil>4000</seuil>
+                    <idcible>0</idcible>
+                    <ratio>0,03</ratio>
+                    <typeratio>gain</typeratio>
+                    <unlocked>false</unlocked>
+                </pallier>
+                <pallier>
+                    <name>orange Step 3</name>
+                    <logo>D:\Mes cours\4A\Mini Projet Angular\3.png</logo>
+                    <seuil>12000</seuil>
+                    <idcible>-1</idcible>
+                    <ratio>0,04</ratio>
+                    <typeratio>ange</typeratio>
+                    <unlocked>false</unlocked>
+                </pallier>
+            </palliers>
+        </product>
+        <product>
+            <id>2</id>
+            <name>Chaussures</name>
+            <logo>D:\Mes cours\4A\Mini Projet Angular\chaussures.jpg</logo>
+            <cout>25</cout>
+            <croissance>1,09</croissance>
+            <revenu>5</revenu>
+            <vitesse>10000</vitesse>
+            <quantite>0</quantite>
+            <timeleft>5000</timeleft>
+            <managerUnlocked>false</managerUnlocked>
+            <palliers>
+                <pallier>
+                    <name>chaussures Step 1</name>
+                    <logo>D:\Mes cours\4A\Mini Projet Angular\1.png</logo>
+                    <seuil>2000</seuil>
+                    <idcible>0</idcible>
+                    <ratio>0,03</ratio>
+                    <typeratio>vitesse</typeratio>
+                    <unlocked>false</unlocked>
+                </pallier>
+                <pallier>
+                    <name>chaussures Step 2</name>
+                    <logo>D:\Mes cours\4A\Mini Projet Angular\2.png</logo>
+                    <seuil>4000</seuil>
+                    <idcible>0</idcible>
+                    <ratio>0,03</ratio>
+                    <typeratio>gain</typeratio>
+                    <unlocked>false</unlocked>
+                </pallier>
+                <pallier>
+                    <name>chaussures Step 3</name>
+                    <logo>D:\Mes cours\4A\Mini Projet Angular\3.png</logo>
+                    <seuil>12000</seuil>
+                    <idcible>-1</idcible>
+                    <ratio>0,04</ratio>
+                    <typeratio>ange</typeratio>
+                    <unlocked>false</unlocked>
+                </pallier>
+            </palliers>
+        </product>
+        <product>
+            <id>3</id>
+            <name>Bijoux</name>
+            <logo>D:\Mes cours\4A\Mini Projet Angular\bijoux.jpg</logo>
+            <cout>100</cout>
+            <croissance>2</croissance>
+            <revenu>10</revenu>
+            <vitesse>30000</vitesse>
+            <quantite>0</quantite>
+            <timeleft>5000</timeleft>
+            <managerUnlocked>false</managerUnlocked>
+            <palliers>
+                <pallier>
+                    <name>bijoux Step 1</name>
+                    <logo>D:\Mes cours\4A\Mini Projet Angular\1.png</logo>
+                    <seuil>2000</seuil>
+                    <idcible>0</idcible>
+                    <ratio>0,03</ratio>
+                    <typeratio>vitesse</typeratio>
+                    <unlocked>false</unlocked>
+                </pallier>
+                <pallier>
+                    <name>bijoux Step 2</name>
+                    <logo>D:\Mes cours\4A\Mini Projet Angular\2.png</logo>
+                    <seuil>4000</seuil>
+                    <idcible>0</idcible>
+                    <ratio>0,03</ratio>
+                    <typeratio>gain</typeratio>
+                    <unlocked>false</unlocked>
+                </pallier>
+                <pallier>
+                    <name>bijoux Step 3</name>
+                    <logo>D:\Mes cours\4A\Mini Projet Angular\3.png</logo>
+                    <seuil>12000</seuil>
+                    <idcible>-1</idcible>
+                    <ratio>0,04</ratio>
+                    <typeratio>ange</typeratio>
+                    <unlocked>false</unlocked>
+                </pallier>
+            </palliers>
+        </product>
+    </products>
+    <allunlocks>
+        <pallier>
+            <name></name>
+            <logo></logo>
+            <seuil></seuil>
+            <idcible></idcible>
+            <ratio></ratio>
+            <typeratio></typeratio>
+            <unlocked></unlocked>
+        </pallier>
+        <pallier>
+            <name></name>
+            <logo></logo>
+            <seuil></seuil>
+            <idcible></idcible>
+            <ratio></ratio>
+            <typeratio></typeratio>
+            <unlocked></unlocked>
+        </pallier>
+        <pallier>
+            <name></name>
+            <logo></logo>
+            <seuil></seuil>
+            <idcible></idcible>
+            <ratio></ratio>
+            <typeratio></typeratio>
+            <unlocked></unlocked>
+        </pallier>
+    </allunlocks>
+    <upgrades>
+        <pallier>
+            <name></name>
+            <logo></logo>
+            <seuil></seuil>
+            <idcible></idcible>
+            <ratio></ratio>
+            <typeratio></typeratio>
+            <unlocked></unlocked>
+        </pallier>
+    </upgrades>
+    <angelupgrades>
+        <pallier>
+            <name>Cash Upgrades</name>
+            <logo></logo>
+            <seuil>1500</seuil>
+            <idcible>0</idcible>
+            <ratio>0,02</ratio>
+            <typeratio>vitesse</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Angel Upgrades</name>
+            <logo></logo>
+            <seuil>3</seuil>
+            <idcible>-1</idcible>
+            <ratio>0,04</ratio>
+            <typeratio>ange</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Golg Upgrades</name>
+            <logo></logo>
+            <seuil>7000</seuil>
+            <idcible>0</idcible>
+            <ratio>0,05</ratio>
+            <typeratio>gain</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+    </angelupgrades>
+    <managers>
+        <pallier>
+            <name>Maria</name>
+            <logo></logo>
+            <seuil>5000</seuil>
+            <idcible>1</idcible>
+            <ratio></ratio>
+            <typeratio></typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Jerry</name>
+            <logo></logo>
+            <seuil>10000</seuil>
+            <idcible>2</idcible>
+            <ratio></ratio>
+            <typeratio></typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Pedro</name>
+            <logo></logo>
+            <seuil>20000</seuil>
+            <idcible>3</idcible>
+            <ratio></ratio>
+            <typeratio></typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+    </managers>
+
+</world>
