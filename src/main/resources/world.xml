@@ -144,31 +144,31 @@ and open the template in the editor.
     </products>
     <allunlocks>
         <pallier>
-            <name></name>
-            <logo></logo>
-            <seuil></seuil>
-            <idcible></idcible>
-            <ratio></ratio>
-            <typeratio></typeratio>
-            <unlocked></unlocked>
+            <name>unlock 1</name>
+            <logo>cadenas.gif</logo>
+            <seuil>1000</seuil>
+            <idcible>0</idcible>
+            <ratio>0,04</ratio>
+            <typeratio>vitesse</typeratio>
+            <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name></name>
-            <logo></logo>
-            <seuil></seuil>
-            <idcible></idcible>
-            <ratio></ratio>
-            <typeratio></typeratio>
-            <unlocked></unlocked>
+            <name>unlock 2</name>
+            <logo>cadenas.gif</logo>
+            <seuil>3000</seuil>
+            <idcible>0</idcible>
+            <ratio>O,04</ratio>
+            <typeratio>gain</typeratio>
+            <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name></name>
-            <logo></logo>
-            <seuil></seuil>
-            <idcible></idcible>
-            <ratio></ratio>
-            <typeratio></typeratio>
-            <unlocked></unlocked>
+            <name>unlock 3</name>
+            <logo>cadenas.gif</logo>
+            <seuil>5000</seuil>
+            <idcible>0</idcible>
+            <ratio>0,04</ratio>
+            <typeratio>ange</typeratio>
+            <unlocked>false</unlocked>
         </pallier>
     </allunlocks>
     <upgrades>
@@ -185,7 +185,7 @@ and open the template in the editor.
     <angelupgrades>
         <pallier>
             <name>Cash Upgrades</name>
-            <logo></logo>
+            <logo>argent.jpg</logo>
             <seuil>1500</seuil>
             <idcible>0</idcible>
             <ratio>0,02</ratio>
@@ -194,7 +194,7 @@ and open the template in the editor.
         </pallier>
         <pallier>
             <name>Angel Upgrades</name>
-            <logo></logo>
+            <logo>ange.jpg</logo>
             <seuil>3</seuil>
             <idcible>-1</idcible>
             <ratio>0,04</ratio>
@@ -203,7 +203,7 @@ and open the template in the editor.
         </pallier>
         <pallier>
             <name>Golg Upgrades</name>
-            <logo></logo>
+            <logo>or.jpg</logo>
             <seuil>7000</seuil>
             <idcible>0</idcible>
             <ratio>0,05</ratio>
@@ -214,7 +214,7 @@ and open the template in the editor.
     <managers>
         <pallier>
             <name>Maria</name>
-            <logo></logo>
+            <logo>maria.jpg</logo>
             <seuil>5000</seuil>
             <idcible>1</idcible>
             <ratio></ratio>
@@ -223,7 +223,7 @@ and open the template in the editor.
         </pallier>
         <pallier>
             <name>Jerry</name>
-            <logo></logo>
+            <logo>jerry.jpg</logo>
             <seuil>10000</seuil>
             <idcible>2</idcible>
             <ratio></ratio>
@@ -232,7 +232,7 @@ and open the template in the editor.
         </pallier>
         <pallier>
             <name>Pedro</name>
-            <logo></logo>
+            <logo>pedro.png</logo>
             <seuil>20000</seuil>
             <idcible>3</idcible>
             <ratio></ratio>
