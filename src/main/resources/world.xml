@@ -10,7 +10,7 @@ and open the template in the editor.
     xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
     xsi:noNamespaceSchemaLocation='worldSchema.xsd'>
     <name>Terre</name>
-    <logo>D:\Mes cours\4A\Mini Projet Angular\terre.jpg</logo>
+    <logo>terre.jpg</logo>
     <money>10</money>
     <score>0</score>
     <totalangels>0</totalangels>
@@ -21,7 +21,7 @@ and open the template in the editor.
         <product>
             <id>1</id>
             <name>Orange</name>
-            <logo>D:\Mes cours\4A\Mini Projet Angular\orange.jpg</logo>
+            <logo>orange.jpg</logo>
             <cout>3</cout>
             <croissance>1,07</croissance>
             <revenu>2</revenu>
@@ -32,7 +32,7 @@ and open the template in the editor.
             <palliers>
                 <pallier>
                     <name>orange Step 1</name>
-                    <logo>D:\Mes cours\4A\Mini Projet Angular\1.png</logo>
+                    <logo>1.png</logo>
                     <seuil>2000</seuil>
                     <idcible>0</idcible>
                     <ratio>0,03</ratio>
@@ -41,7 +41,7 @@ and open the template in the editor.
                 </pallier>
                 <pallier>
                     <name>orange Step 2</name>
-                    <logo>D:\Mes cours\4A\Mini Projet Angular\2.png</logo>
+                    <logo>2.png</logo>
                     <seuil>4000</seuil>
                     <idcible>0</idcible>
                     <ratio>0,03</ratio>
@@ -50,7 +50,7 @@ and open the template in the editor.
                 </pallier>
                 <pallier>
                     <name>orange Step 3</name>
-                    <logo>D:\Mes cours\4A\Mini Projet Angular\3.png</logo>
+                    <logo>3.png</logo>
                     <seuil>12000</seuil>
                     <idcible>-1</idcible>
                     <ratio>0,04</ratio>
@@ -62,7 +62,7 @@ and open the template in the editor.
         <product>
             <id>2</id>
             <name>Chaussures</name>
-            <logo>D:\Mes cours\4A\Mini Projet Angular\chaussures.jpg</logo>
+            <logo>chaussures.jpg</logo>
             <cout>25</cout>
             <croissance>1,09</croissance>
             <revenu>5</revenu>
@@ -73,7 +73,7 @@ and open the template in the editor.
             <palliers>
                 <pallier>
                     <name>chaussures Step 1</name>
-                    <logo>D:\Mes cours\4A\Mini Projet Angular\1.png</logo>
+                    <logo>1.png</logo>
                     <seuil>2000</seuil>
                     <idcible>0</idcible>
                     <ratio>0,03</ratio>
@@ -82,7 +82,7 @@ and open the template in the editor.
                 </pallier>
                 <pallier>
                     <name>chaussures Step 2</name>
-                    <logo>D:\Mes cours\4A\Mini Projet Angular\2.png</logo>
+                    <logo>2.png</logo>
                     <seuil>4000</seuil>
                     <idcible>0</idcible>
                     <ratio>0,03</ratio>
@@ -91,7 +91,7 @@ and open the template in the editor.
                 </pallier>
                 <pallier>
                     <name>chaussures Step 3</name>
-                    <logo>D:\Mes cours\4A\Mini Projet Angular\3.png</logo>
+                    <logo>3.png</logo>
                     <seuil>12000</seuil>
                     <idcible>-1</idcible>
                     <ratio>0,04</ratio>
@@ -114,7 +114,7 @@ and open the template in the editor.
             <palliers>
                 <pallier>
                     <name>bijoux Step 1</name>
-                    <logo>D:\Mes cours\4A\Mini Projet Angular\1.png</logo>
+                    <logo>1.png</logo>
                     <seuil>2000</seuil>
                     <idcible>0</idcible>
                     <ratio>0,03</ratio>
@@ -123,7 +123,7 @@ and open the template in the editor.
                 </pallier>
                 <pallier>
                     <name>bijoux Step 2</name>
-                    <logo>D:\Mes cours\4A\Mini Projet Angular\2.png</logo>
+                    <logo>2.png</logo>
                     <seuil>4000</seuil>
                     <idcible>0</idcible>
                     <ratio>0,03</ratio>
@@ -132,7 +132,7 @@ and open the template in the editor.
                 </pallier>
                 <pallier>
                     <name>bijoux Step 3</name>
-                    <logo>D:\Mes cours\4A\Mini Projet Angular\3.png</logo>
+                    <logo>3.png</logo>
                     <seuil>12000</seuil>
                     <idcible>-1</idcible>
                     <ratio>0,04</ratio>
@@ -173,16 +173,32 @@ and open the template in the editor.
     </allunlocks>
     <upgrades>
         <pallier>
-            <name></name>
-            <logo></logo>
-            <seuil></seuil>
-            <idcible></idcible>
-            <ratio></ratio>
-            <typeratio></typeratio>
-            <unlocked></unlocked>
+            <name>Oranges Upgrades</name>
+            <logo>orange.jpg</logo>
+            <seuil>5000</seuil>
+            <idcible>1</idcible>
+            <ratio>0,02</ratio>
+            <typeratio>gain</typeratio>
+            <unlocked>false</unlocked>
         </pallier>
-    </upgrades>
-    <angelupgrades>
+        <pallier>
+            <name>Chaussures Upgrades</name>
+            <logo>chaussures.jpg</logo>
+            <seuil>5000</seuil>
+            <idcible>2</idcible>
+            <ratio>0,02</ratio>
+            <typeratio>gain</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Bijoux Upgrades</name>
+            <logo>bijoux.jpg</logo>
+            <seuil>5000</seuil>
+            <idcible>0</idcible>
+            <ratio>0,02</ratio>
+            <typeratio>gain</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
         <pallier>
             <name>Cash Upgrades</name>
             <logo>argent.jpg</logo>
@@ -193,7 +209,18 @@ and open the template in the editor.
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Angel Upgrades</name>
+            <name>Golg Upgrades</name>
+            <logo>or.jpg</logo>
+            <seuil>7000</seuil>
+            <idcible>0</idcible>
+            <ratio>0,05</ratio>
+            <typeratio>gain</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+    </upgrades>
+    <angelupgrades>
+        <pallier>
+            <name>Angel Upgrade 1</name>
             <logo>ange.jpg</logo>
             <seuil>3</seuil>
             <idcible>-1</idcible>
@@ -202,12 +229,21 @@ and open the template in the editor.
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
-            <name>Golg Upgrades</name>
-            <logo>or.jpg</logo>
-            <seuil>7000</seuil>
-            <idcible>0</idcible>
-            <ratio>0,05</ratio>
-            <typeratio>gain</typeratio>
+            <name>Angel Upgrade 2</name>
+            <logo>ange.jpg</logo>
+            <seuil>6</seuil>
+            <idcible>-1</idcible>
+            <ratio>0,04</ratio>
+            <typeratio>ange</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Angel Upgrade 3</name>
+            <logo>ange.jpg</logo>
+            <seuil>9</seuil>
+            <idcible>-1</idcible>
+            <ratio>0,04</ratio>
+            <typeratio>ange</typeratio>
             <unlocked>false</unlocked>
         </pallier>
     </angelupgrades>
@@ -240,5 +276,4 @@ and open the template in the editor.
             <unlocked>false</unlocked>
         </pallier>
     </managers>
-
 </world>
