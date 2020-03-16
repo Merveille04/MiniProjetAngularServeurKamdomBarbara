@@ -148,7 +148,7 @@ and open the template in the editor.
             <logo>cadenas.gif</logo>
             <seuil>1000</seuil>
             <idcible>0</idcible>
-            <ratio>0,04</ratio>
+            <ratio>0,5</ratio>
             <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>
         </pallier>
@@ -157,7 +157,7 @@ and open the template in the editor.
             <logo>cadenas.gif</logo>
             <seuil>3000</seuil>
             <idcible>0</idcible>
-            <ratio>O,04</ratio>
+            <ratio>1,3</ratio>
             <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
@@ -166,7 +166,7 @@ and open the template in the editor.
             <logo>cadenas.gif</logo>
             <seuil>5000</seuil>
             <idcible>0</idcible>
-            <ratio>0,04</ratio>
+            <ratio>1</ratio>
             <typeratio>ange</typeratio>
             <unlocked>false</unlocked>
         </pallier>

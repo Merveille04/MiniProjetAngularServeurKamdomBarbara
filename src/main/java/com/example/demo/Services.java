@@ -28,8 +28,6 @@ import javax.xml.bind.Unmarshaller;
  */
 public class Services {
 
-    
-    
     public World getWorld(String username) throws JAXBException  {
         World world;
         world= readWorldFromXml(username);
@@ -134,9 +132,27 @@ public class Services {
             // pour lancer la production
             product.setTimeleft(product.getVitesse());
         }
+        //application des upgrades en fonction de la quantité de produits
+        if(newproduct.getQuantite()>=1000){ 
+            PallierType p =  newproduct.getPalliers().getPallier().get(0);// on recupère le premier pallier de la liste des palliers du produit 
+            p.setUnlocked(true);// on le débloque
+            newproduct.setVitesse(newproduct.getVitesse()/2);   
+        } 
+        else if (newproduct.getQuantite()>=3000) {
+            PallierType p =  newproduct.getPalliers().getPallier().get(1);//on recupère le deuxième pallier de la liste des palliers du produit 
+            p.setUnlocked(true);// on le débloque
+            newproduct.setRevenu(newproduct.getRevenu()*1.3);
+        }
+        else if (newproduct.getQuantite()>=5000){
+            PallierType p =  newproduct.getPalliers().getPallier().get(3);//on recupère le troisème pallier de la liste des palliers du produit 
+            p.setUnlocked(true);//on recupère le premier pallier de la liste des palliers du produit 
+             /*newproduct*/
+        }
         // sauvegarder les changements du monde
         saveWordlToXml(world, username);
         return true;
+        
+        
     }
 
     private ProductType findProductById(World world, int id) {
