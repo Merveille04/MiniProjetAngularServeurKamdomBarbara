@@ -5,7 +5,6 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
-
 <world
     xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
     xsi:noNamespaceSchemaLocation='worldSchema.xsd'>
@@ -15,7 +14,8 @@ and open the template in the editor.
     <score>0</score>
     <totalangels>0</totalangels>
     <activeangels>1</activeangels>
-    <angelbonus>0,02</angelbonus>
+    <!-- le gain du aux anges s'exprime avec un entier qui détermine le pourcentage initial (ici 2%) -->
+    <angelbonus>2</angelbonus>
     <lastupdate>1</lastupdate>
     <products>
         <product>
@@ -23,19 +23,25 @@ and open the template in the editor.
             <name>Orange</name>
             <logo>orange.jpg</logo>
             <cout>3</cout>
-            <croissance>1,07</croissance>
+            <croissance>1.07</croissance>
             <revenu>2</revenu>
             <vitesse>5000</vitesse>
             <quantite>0</quantite>
-            <timeleft>3000</timeleft>
+            <timeleft>0</timeleft>
             <managerUnlocked>false</managerUnlocked>
             <palliers>
                 <pallier>
                     <name>orange Step 1</name>
                     <logo>1.png</logo>
                     <seuil>2000</seuil>
-                    <idcible>0</idcible>
-                    <ratio>0,03</ratio>
+                    <!-- En dessous vous devez mettre l'identifiant du produit qui est la cible du bonus. Je mets 1 pour signaler que c'est l'orange
+                    si on met 0, ca veut dire que tous les produits sont concernés par  le bonus -->
+                    <idcible>1</idcible>
+                    <!-- En dessous on met un chiffre qui soit multiplie le gain par ce chiffre (quand le type est gain), soit divise la vitesse par ce chiffre (quand
+                    le type est vitesse, soit ajoute au bonus rapporté par les anges le chiffre indiqué (quand le type est ange). Exemple pour le bonus de type ange :
+                     - au début les anges rapportent 2% de bonus (angelbonus). Si vous débloquez un bonus ange avec ratio qui vaut 3, désormais les anges rapportent 5% chacun
+                     -->
+                    <ratio>3</ratio>
                     <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
@@ -43,8 +49,8 @@ and open the template in the editor.
                     <name>orange Step 2</name>
                     <logo>2.png</logo>
                     <seuil>4000</seuil>
-                    <idcible>0</idcible>
-                    <ratio>0,03</ratio>
+                    <idcible>1</idcible>
+                    <ratio>3</ratio>
                     <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
@@ -52,8 +58,8 @@ and open the template in the editor.
                     <name>orange Step 3</name>
                     <logo>3.png</logo>
                     <seuil>12000</seuil>
-                    <idcible>-1</idcible>
-                    <ratio>0,04</ratio>
+                    <idcible>1</idcible>
+                    <ratio>4</ratio>
                     <typeratio>ange</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
@@ -64,7 +70,7 @@ and open the template in the editor.
             <name>Chaussures</name>
             <logo>chaussures.jpg</logo>
             <cout>25</cout>
-            <croissance>1,09</croissance>
+            <croissance>1.09</croissance>
             <revenu>5</revenu>
             <vitesse>10000</vitesse>
             <quantite>0</quantite>
@@ -75,8 +81,8 @@ and open the template in the editor.
                     <name>chaussures Step 1</name>
                     <logo>1.png</logo>
                     <seuil>2000</seuil>
-                    <idcible>0</idcible>
-                    <ratio>0,03</ratio>
+                    <idcible>2</idcible>
+                    <ratio>3</ratio>
                     <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
@@ -84,8 +90,8 @@ and open the template in the editor.
                     <name>chaussures Step 2</name>
                     <logo>2.png</logo>
                     <seuil>4000</seuil>
-                    <idcible>0</idcible>
-                    <ratio>0,03</ratio>
+                    <idcible>2</idcible>
+                    <ratio>3</ratio>
                     <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
@@ -93,8 +99,8 @@ and open the template in the editor.
                     <name>chaussures Step 3</name>
                     <logo>3.png</logo>
                     <seuil>12000</seuil>
-                    <idcible>-1</idcible>
-                    <ratio>0,04</ratio>
+                    <idcible>2</idcible>
+                    <ratio>4</ratio>
                     <typeratio>ange</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
@@ -109,7 +115,7 @@ and open the template in the editor.
             <revenu>10</revenu>
             <vitesse>30000</vitesse>
             <quantite>0</quantite>
-            <timeleft>5000</timeleft>
+            <timeleft>0</timeleft>
             <managerUnlocked>false</managerUnlocked>
             <palliers>
                 <pallier>
@@ -117,7 +123,7 @@ and open the template in the editor.
                     <logo>1.png</logo>
                     <seuil>2000</seuil>
                     <idcible>0</idcible>
-                    <ratio>0,03</ratio>
+                    <ratio>3</ratio>
                     <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
@@ -126,7 +132,7 @@ and open the template in the editor.
                     <logo>2.png</logo>
                     <seuil>4000</seuil>
                     <idcible>0</idcible>
-                    <ratio>0,03</ratio>
+                    <ratio>3</ratio>
                     <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
@@ -135,7 +141,7 @@ and open the template in the editor.
                     <logo>3.png</logo>
                     <seuil>12000</seuil>
                     <idcible>-1</idcible>
-                    <ratio>0,04</ratio>
+                    <ratio>4</ratio>
                     <typeratio>ange</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
@@ -144,11 +150,14 @@ and open the template in the editor.
     </products>
     <allunlocks>
         <pallier>
+            <!-- ce pallier signifie que quand vous aurez otebnu 1000 quantité de chaque produit,
+            tous les produits (idcible = 0), verront leur vitesse doublé (ou si vous préférez la propriété vitesse
+            verra sa valeur divisée par deux) -->
             <name>unlock 1</name>
             <logo>cadenas.gif</logo>
             <seuil>1000</seuil>
             <idcible>0</idcible>
-            <ratio>0,5</ratio>
+            <ratio>2</ratio>
             <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>
         </pallier>
@@ -157,7 +166,7 @@ and open the template in the editor.
             <logo>cadenas.gif</logo>
             <seuil>3000</seuil>
             <idcible>0</idcible>
-            <ratio>1,3</ratio>
+            <ratio>1.3</ratio>
             <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
@@ -175,9 +184,11 @@ and open the template in the editor.
         <pallier>
             <name>Oranges Upgrades</name>
             <logo>orange.jpg</logo>
+            <!-- en dessous, la valeur 5000 indique qu'il faudra dépenser 5000 euros pour pouvoir acheter ce bonus -->
             <seuil>5000</seuil>
             <idcible>1</idcible>
-            <ratio>0,02</ratio>
+            <!-- et que le bonus multipliera par 2 les revenus du produit -->
+            <ratio>2</ratio>
             <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
@@ -186,7 +197,7 @@ and open the template in the editor.
             <logo>chaussures.jpg</logo>
             <seuil>5000</seuil>
             <idcible>2</idcible>
-            <ratio>0,02</ratio>
+            <ratio>2</ratio>
             <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
@@ -195,7 +206,7 @@ and open the template in the editor.
             <logo>bijoux.jpg</logo>
             <seuil>5000</seuil>
             <idcible>0</idcible>
-            <ratio>0,02</ratio>
+            <ratio>2</ratio>
             <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
@@ -204,7 +215,7 @@ and open the template in the editor.
             <logo>argent.jpg</logo>
             <seuil>1500</seuil>
             <idcible>0</idcible>
-            <ratio>0,02</ratio>
+            <ratio>2</ratio>
             <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>
         </pallier>
@@ -213,7 +224,7 @@ and open the template in the editor.
             <logo>or.jpg</logo>
             <seuil>7000</seuil>
             <idcible>0</idcible>
-            <ratio>0,05</ratio>
+            <ratio>5</ratio>
             <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
@@ -224,7 +235,7 @@ and open the template in the editor.
             <logo>ange.jpg</logo>
             <seuil>3</seuil>
             <idcible>-1</idcible>
-            <ratio>0,04</ratio>
+            <ratio>4</ratio>
             <typeratio>ange</typeratio>
             <unlocked>false</unlocked>
         </pallier>
@@ -233,7 +244,7 @@ and open the template in the editor.
             <logo>ange.jpg</logo>
             <seuil>6</seuil>
             <idcible>-1</idcible>
-            <ratio>0,04</ratio>
+            <ratio>4</ratio>
             <typeratio>ange</typeratio>
             <unlocked>false</unlocked>
         </pallier>
@@ -242,7 +253,7 @@ and open the template in the editor.
             <logo>ange.jpg</logo>
             <seuil>9</seuil>
             <idcible>-1</idcible>
-            <ratio>0,04</ratio>
+            <ratio>4</ratio>
             <typeratio>ange</typeratio>
             <unlocked>false</unlocked>
         </pallier>
@@ -253,8 +264,8 @@ and open the template in the editor.
             <logo>maria.jpg</logo>
             <seuil>5000</seuil>
             <idcible>1</idcible>
-            <ratio></ratio>
-            <typeratio></typeratio>
+            <ratio>0</ratio>
+            <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
@@ -262,8 +273,8 @@ and open the template in the editor.
             <logo>jerry.jpg</logo>
             <seuil>10000</seuil>
             <idcible>2</idcible>
-            <ratio></ratio>
-            <typeratio></typeratio>
+            <ratio>0</ratio>
+            <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
@@ -271,8 +282,8 @@ and open the template in the editor.
             <logo>pedro.png</logo>
             <seuil>20000</seuil>
             <idcible>3</idcible>
-            <ratio></ratio>
-            <typeratio></typeratio>
+            <ratio>0</ratio>
+            <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>
         </pallier>
     </managers>

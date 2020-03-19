@@ -8,7 +8,6 @@ package com.example.demo;
 import com.example.demo.generated.PallierType;
 import com.example.demo.generated.ProductType;
 import com.example.demo.generated.World;
-import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
