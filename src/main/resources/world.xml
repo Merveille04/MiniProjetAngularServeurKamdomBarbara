@@ -13,10 +13,10 @@ and open the template in the editor.
     <money>10</money>
     <score>0</score>
     <totalangels>0</totalangels>
-    <activeangels>1</activeangels>
+    <activeangels>0</activeangels>
     <!-- le gain du aux anges s'exprime avec un entier qui détermine le pourcentage initial (ici 2%) -->
     <angelbonus>2</angelbonus>
-    <lastupdate>1</lastupdate>
+    <lastupdate>0</lastupdate>
     <products>
         <product>
             <id>1</id>
@@ -25,7 +25,7 @@ and open the template in the editor.
             <cout>3</cout>
             <croissance>1.07</croissance>
             <revenu>2</revenu>
-            <vitesse>5000</vitesse>
+            <vitesse>3000</vitesse>
             <quantite>0</quantite>
             <timeleft>0</timeleft>
             <managerUnlocked>false</managerUnlocked>
@@ -33,7 +33,7 @@ and open the template in the editor.
                 <pallier>
                     <name>orange Step 1</name>
                     <logo>1.png</logo>
-                    <seuil>2000</seuil>
+                    <seuil>10</seuil>
                     <!-- En dessous vous devez mettre l'identifiant du produit qui est la cible du bonus. Je mets 1 pour signaler que c'est l'orange
                     si on met 0, ca veut dire que tous les produits sont concernés par  le bonus -->
                     <idcible>1</idcible>
@@ -41,25 +41,25 @@ and open the template in the editor.
                     le type est vitesse, soit ajoute au bonus rapporté par les anges le chiffre indiqué (quand le type est ange). Exemple pour le bonus de type ange :
                      - au début les anges rapportent 2% de bonus (angelbonus). Si vous débloquez un bonus ange avec ratio qui vaut 3, désormais les anges rapportent 5% chacun
                      -->
-                    <ratio>3</ratio>
+                    <ratio>2</ratio>
                     <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
                     <name>orange Step 2</name>
                     <logo>2.png</logo>
-                    <seuil>4000</seuil>
+                    <seuil>20</seuil>
                     <idcible>1</idcible>
-                    <ratio>3</ratio>
+                    <ratio>2</ratio>
                     <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
                     <name>orange Step 3</name>
                     <logo>3.png</logo>
-                    <seuil>12000</seuil>
+                    <seuil>30</seuil>
                     <idcible>1</idcible>
-                    <ratio>4</ratio>
+                    <ratio>2</ratio>
                     <typeratio>ange</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
@@ -69,38 +69,38 @@ and open the template in the editor.
             <id>2</id>
             <name>Chaussures</name>
             <logo>chaussures.jpg</logo>
-            <cout>25</cout>
+            <cout>8</cout>
             <croissance>1.09</croissance>
             <revenu>5</revenu>
-            <vitesse>10000</vitesse>
+            <vitesse>3000</vitesse>
             <quantite>0</quantite>
-            <timeleft>5000</timeleft>
+            <timeleft>0</timeleft>
             <managerUnlocked>false</managerUnlocked>
             <palliers>
                 <pallier>
                     <name>chaussures Step 1</name>
                     <logo>1.png</logo>
-                    <seuil>2000</seuil>
+                    <seuil>15</seuil>
                     <idcible>2</idcible>
-                    <ratio>3</ratio>
+                    <ratio>2</ratio>
                     <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
                     <name>chaussures Step 2</name>
                     <logo>2.png</logo>
-                    <seuil>4000</seuil>
+                    <seuil>30</seuil>
                     <idcible>2</idcible>
-                    <ratio>3</ratio>
+                    <ratio>2</ratio>
                     <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
                     <name>chaussures Step 3</name>
                     <logo>3.png</logo>
-                    <seuil>12000</seuil>
+                    <seuil>45</seuil>
                     <idcible>2</idcible>
-                    <ratio>4</ratio>
+                    <ratio>2</ratio>
                     <typeratio>ange</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
@@ -110,10 +110,10 @@ and open the template in the editor.
             <id>3</id>
             <name>Bijoux</name>
             <logo>D:\Mes cours\4A\Mini Projet Angular\bijoux.jpg</logo>
-            <cout>100</cout>
+            <cout>12</cout>
             <croissance>2</croissance>
             <revenu>10</revenu>
-            <vitesse>30000</vitesse>
+            <vitesse>4000</vitesse>
             <quantite>0</quantite>
             <timeleft>0</timeleft>
             <managerUnlocked>false</managerUnlocked>
@@ -121,27 +121,27 @@ and open the template in the editor.
                 <pallier>
                     <name>bijoux Step 1</name>
                     <logo>1.png</logo>
-                    <seuil>2000</seuil>
-                    <idcible>0</idcible>
-                    <ratio>3</ratio>
+                    <seuil>10</seuil>
+                    <idcible>3</idcible>
+                    <ratio>2</ratio>
                     <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
                     <name>bijoux Step 2</name>
                     <logo>2.png</logo>
-                    <seuil>4000</seuil>
-                    <idcible>0</idcible>
-                    <ratio>3</ratio>
+                    <seuil>20</seuil>
+                    <idcible>3</idcible>
+                    <ratio>2</ratio>
                     <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
                     <name>bijoux Step 3</name>
                     <logo>3.png</logo>
-                    <seuil>12000</seuil>
-                    <idcible>-1</idcible>
-                    <ratio>4</ratio>
+                    <seuil>30</seuil>
+                    <idcible>3</idcible>
+                    <ratio>2</ratio>
                     <typeratio>ange</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
@@ -155,7 +155,7 @@ and open the template in the editor.
             verra sa valeur divisée par deux) -->
             <name>unlock 1</name>
             <logo>cadenas.gif</logo>
-            <seuil>1000</seuil>
+            <seuil>50</seuil>
             <idcible>0</idcible>
             <ratio>2</ratio>
             <typeratio>vitesse</typeratio>
@@ -164,18 +164,18 @@ and open the template in the editor.
         <pallier>
             <name>unlock 2</name>
             <logo>cadenas.gif</logo>
-            <seuil>3000</seuil>
+            <seuil>60</seuil>
             <idcible>0</idcible>
-            <ratio>1.3</ratio>
+            <ratio>2</ratio>
             <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
             <name>unlock 3</name>
             <logo>cadenas.gif</logo>
-            <seuil>5000</seuil>
+            <seuil>80</seuil>
             <idcible>0</idcible>
-            <ratio>1</ratio>
+            <ratio>2</ratio>
             <typeratio>ange</typeratio>
             <unlocked>false</unlocked>
         </pallier>
@@ -185,44 +185,44 @@ and open the template in the editor.
             <name>Oranges Upgrades</name>
             <logo>orange.jpg</logo>
             <!-- en dessous, la valeur 5000 indique qu'il faudra dépenser 5000 euros pour pouvoir acheter ce bonus -->
-            <seuil>5000</seuil>
+            <seuil>50</seuil>
             <idcible>1</idcible>
             <!-- et que le bonus multipliera par 2 les revenus du produit -->
-            <ratio>2</ratio>
-            <typeratio>gain</typeratio>
-            <unlocked>false</unlocked>
-        </pallier>
-        <pallier>
-            <name>Chaussures Upgrades</name>
-            <logo>chaussures.jpg</logo>
-            <seuil>5000</seuil>
-            <idcible>2</idcible>
-            <ratio>2</ratio>
-            <typeratio>gain</typeratio>
-            <unlocked>false</unlocked>
-        </pallier>
-        <pallier>
-            <name>Bijoux Upgrades</name>
-            <logo>bijoux.jpg</logo>
-            <seuil>5000</seuil>
-            <idcible>0</idcible>
-            <ratio>2</ratio>
-            <typeratio>gain</typeratio>
-            <unlocked>false</unlocked>
-        </pallier>
-        <pallier>
-            <name>Cash Upgrades</name>
-            <logo>argent.jpg</logo>
-            <seuil>1500</seuil>
-            <idcible>0</idcible>
             <ratio>2</ratio>
             <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
+            <name>Chaussures Upgrades</name>
+            <logo>chaussures.jpg</logo>
+            <seuil>70</seuil>
+            <idcible>2</idcible>
+            <ratio>4</ratio>
+            <typeratio>vitesse</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Bijoux Upgrades</name>
+            <logo>bijoux.jpg</logo>
+            <seuil>100</seuil>
+            <idcible>3</idcible>
+            <ratio>5</ratio>
+            <typeratio>vitesse</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
+            <name>Cash Upgrades</name>
+            <logo>argent.jpg</logo>
+            <seuil>150</seuil>
+            <idcible>0</idcible>
+            <ratio>3</ratio>
+            <typeratio>gain</typeratio>
+            <unlocked>false</unlocked>
+        </pallier>
+        <pallier>
             <name>Golg Upgrades</name>
             <logo>or.jpg</logo>
-            <seuil>7000</seuil>
+            <seuil>200</seuil>
             <idcible>0</idcible>
             <ratio>5</ratio>
             <typeratio>gain</typeratio>
@@ -233,16 +233,16 @@ and open the template in the editor.
         <pallier>
             <name>Angel Upgrade 1</name>
             <logo>ange.jpg</logo>
-            <seuil>3</seuil>
+            <seuil>100</seuil>
             <idcible>-1</idcible>
-            <ratio>4</ratio>
+            <ratio>2</ratio>
             <typeratio>ange</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
             <name>Angel Upgrade 2</name>
             <logo>ange.jpg</logo>
-            <seuil>6</seuil>
+            <seuil>200</seuil>
             <idcible>-1</idcible>
             <ratio>4</ratio>
             <typeratio>ange</typeratio>
@@ -251,9 +251,9 @@ and open the template in the editor.
         <pallier>
             <name>Angel Upgrade 3</name>
             <logo>ange.jpg</logo>
-            <seuil>9</seuil>
+            <seuil>300</seuil>
             <idcible>-1</idcible>
-            <ratio>4</ratio>
+            <ratio>6</ratio>
             <typeratio>ange</typeratio>
             <unlocked>false</unlocked>
         </pallier>
@@ -262,28 +262,28 @@ and open the template in the editor.
         <pallier>
             <name>Maria</name>
             <logo>maria.jpg</logo>
-            <seuil>5000</seuil>
+            <seuil>200</seuil>
             <idcible>1</idcible>
-            <ratio>0</ratio>
-            <typeratio>vitesse</typeratio>
+            <ratio></ratio>
+            <typeratio></typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
             <name>Jerry</name>
             <logo>jerry.jpg</logo>
-            <seuil>10000</seuil>
+            <seuil>300</seuil>
             <idcible>2</idcible>
-            <ratio>0</ratio>
-            <typeratio>vitesse</typeratio>
+            <ratio></ratio>
+            <typeratio></typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
             <name>Pedro</name>
             <logo>pedro.png</logo>
-            <seuil>20000</seuil>
+            <seuil>400</seuil>
             <idcible>3</idcible>
-            <ratio>0</ratio>
-            <typeratio>vitesse</typeratio>
+            <ratio></ratio>
+            <typeratio></typeratio>
             <unlocked>false</unlocked>
         </pallier>
     </managers>

@@ -66,8 +66,8 @@ public class Services {
               n= nbreP+1;
             }
            }
-         world.setMoney(world.getMoney()+(n*p.getRevenu()));// mise a jour de l 'argent qui peur augmenter ou diminuer
-         world.setScore(world.getScore()+(n*p.getRevenu()));// mkise a jour du score qui lui augmente toujours
+         world.setMoney(world.getMoney()+(n*p.getRevenu()));// mise a jour de l 'argent qui peut augmenter ou diminuer
+         world.setScore(world.getScore()+(n*p.getRevenu()));// mise a jour du score qui lui augmente toujours
        }
       world.setLastupdate(System.currentTimeMillis());  
     }
@@ -131,21 +131,81 @@ public class Services {
             // pour lancer la production
             product.setTimeleft(product.getVitesse());
         }
-        //application des upgrades en fonction de la quantité de produits
-        if(newproduct.getQuantite()>=1000){ 
+        
+        //application des bonus en fonction des seuils sur les oranges
+        if(newproduct.getQuantite()>=10 && newproduct.getId()==1){ 
             PallierType p =  newproduct.getPalliers().getPallier().get(0);// on recupère le premier pallier de la liste des palliers du produit 
             p.setUnlocked(true);// on le débloque
-            newproduct.setVitesse(newproduct.getVitesse()/2);   
+            newproduct.setVitesse(newproduct.getVitesse()/2); 
         } 
-        else if (newproduct.getQuantite()>=3000) {
+        else if (newproduct.getQuantite()>=20 && newproduct.getId()==1) {
             PallierType p =  newproduct.getPalliers().getPallier().get(1);//on recupère le deuxième pallier de la liste des palliers du produit 
             p.setUnlocked(true);// on le débloque
-            newproduct.setRevenu(newproduct.getRevenu()*1.3);
+            double r = newproduct.getRevenu()*2;
+            newproduct.setRevenu(r);//on met a jour le revenu du produit
         }
-        else if (newproduct.getQuantite()>=5000){
-            PallierType p =  newproduct.getPalliers().getPallier().get(3);//on recupère le troisème pallier de la liste des palliers du produit 
-            p.setUnlocked(true);//on recupère le premier pallier de la liste des palliers du produit 
+        else if (newproduct.getQuantite()>=30 && newproduct.getId()==1){
+            PallierType p =  newproduct.getPalliers().getPallier().get(2);//on recupère le troisème pallier de la liste des palliers du produit 
+            p.setUnlocked(true);
              /*newproduct*/
+            world.setAngelbonus(4);
+        }
+        
+        //application des bonus en fonction des seuils sur les chaussures
+        if(newproduct.getQuantite()>=15 && newproduct.getId()==2){ 
+            PallierType p =  newproduct.getPalliers().getPallier().get(0);// on recupère le premier pallier de la liste des palliers du produit 
+            p.setUnlocked(true);// on le débloque
+            newproduct.setVitesse(newproduct.getVitesse()/2); 
+        } 
+        else if (newproduct.getQuantite()>=30 && newproduct.getId()==2) {
+            PallierType p =  newproduct.getPalliers().getPallier().get(1);//on recupère le deuxième pallier de la liste des palliers du produit 
+            p.setUnlocked(true);// on le débloque
+            double r = newproduct.getRevenu()*2;
+            newproduct.setRevenu(r);//on met a jour le revenu du produit
+        }
+        else if (newproduct.getQuantite()>=45 && newproduct.getId()==2){
+            PallierType p =  newproduct.getPalliers().getPallier().get(2);//on recupère le troisème pallier de la liste des palliers du produit 
+            p.setUnlocked(true); 
+             /*newproduct*/
+            world.setAngelbonus(4);
+        }
+        
+        //application des bonus en fonction des seuils sur les bijoux
+        if(newproduct.getQuantite()>=10 && newproduct.getId()==3){ 
+            PallierType p =  newproduct.getPalliers().getPallier().get(0);// on recupère le premier pallier de la liste des palliers du produit 
+            p.setUnlocked(true);// on le débloque
+            newproduct.setVitesse(newproduct.getVitesse()/2); 
+        } 
+        else if (newproduct.getQuantite()>=20 && newproduct.getId()==3) {
+            PallierType p =  newproduct.getPalliers().getPallier().get(1);//on recupère le deuxième pallier de la liste des palliers du produit 
+            p.setUnlocked(true);// on le débloque
+            double r = newproduct.getRevenu()*2;
+            newproduct.setRevenu(r);//on met a jour le revenu du produit
+        }
+        else if (newproduct.getQuantite()>=30 && newproduct.getId()==3){
+            PallierType p =  newproduct.getPalliers().getPallier().get(2);//on recupère le troisème pallier de la liste des palliers du produit 
+            p.setUnlocked(true);// 
+             /*newproduct*/
+            world.setAngelbonus(4);
+        }
+        
+        //application des bonus en fonction des allunlocks
+        if(newproduct.getQuantite()>=50){ 
+            PallierType p =  (PallierType) newproduct.getPalliers().getPallier(); 
+            p.setUnlocked(true);// on le débloque
+            newproduct.setVitesse(newproduct.getVitesse()/2); 
+        } 
+        else if (newproduct.getQuantite()>=60 ) {
+            PallierType p =  (PallierType) newproduct.getPalliers().getPallier(); 
+            p.setUnlocked(true);// on le débloque
+            double r = newproduct.getRevenu()*2;
+            newproduct.setRevenu(r);//on met a jour le revenu du produit
+        }
+        else if (newproduct.getQuantite()>=80){
+            PallierType p =  (PallierType) newproduct.getPalliers().getPallier(); 
+            p.setUnlocked(true);
+             /*newproduct*/
+            world.setAngelbonus(4);
         }
         // sauvegarder les changements du monde
         saveWordlToXml(world, username);
