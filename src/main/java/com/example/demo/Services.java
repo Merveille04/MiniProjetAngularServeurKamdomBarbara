@@ -13,6 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.Context;
 
@@ -96,6 +97,34 @@ public class Services {
         m.marshal(world, output);
     }
 
+    void appliquerBonusSurProduit(PallierType p, ProductType product, World world) {
+        switch (p.getTyperatio()) {
+            case ANGE:
+                world.setAngelbonus(world.getAngelbonus() + (int) p.getRatio());
+                break;
+            case VITESSE:
+                product.setVitesse((int) (product.getVitesse() / p.getRatio()));
+                break;
+            case GAIN:
+                product.setRevenu(product.getRevenu() * p.getRatio());
+                break;
+        }
+
+    }
+
+    void appliquerBonus(PallierType p, World world) {
+        int id = p.getIdcible();
+        // si id ne vaut pas zéro, on applique le bonus que sur le produit indiqué
+        if (id != 0) {
+            ProductType product = findProductById(world, p.getIdcible());
+            appliquerBonusSurProduit(p, product, world);
+        }
+        // sinon on applique le bonus sur tous les produits
+        else for (ProductType product: world.getProducts().getProduct()) {
+           appliquerBonusSurProduit(p, product, world);
+        }
+    }
+
     // prend en paramètre le pseudo du joueur et le produit
 // sur lequel une action a eu lieu (lancement manuel de production ou
 // achat d’une certaine quantité de produit)
@@ -131,82 +160,19 @@ public class Services {
             // pour lancer la production
             product.setTimeleft(product.getVitesse());
         }
-        
-        //application des bonus en fonction des seuils sur les oranges
-        if(newproduct.getQuantite()>=10 && newproduct.getId()==1){ 
-            PallierType p =  newproduct.getPalliers().getPallier().get(0);// on recupère le premier pallier de la liste des palliers du produit 
-            p.setUnlocked(true);// on le débloque
-            newproduct.setVitesse(newproduct.getVitesse()/2); 
-        } 
-        else if (newproduct.getQuantite()>=20 && newproduct.getId()==1) {
-            PallierType p =  newproduct.getPalliers().getPallier().get(1);//on recupère le deuxième pallier de la liste des palliers du produit 
-            p.setUnlocked(true);// on le débloque
-            double r = newproduct.getRevenu()*2;
-            newproduct.setRevenu(r);//on met a jour le revenu du produit
-        }
-        else if (newproduct.getQuantite()>=30 && newproduct.getId()==1){
-            PallierType p =  newproduct.getPalliers().getPallier().get(2);//on recupère le troisème pallier de la liste des palliers du produit 
-            p.setUnlocked(true);
-             /*newproduct*/
-            world.setAngelbonus(4);
+
+
+        // C'est la variable product qui indique sur quel produit on est.
+        // Il faut parcourir la liste des tous ses palliers non déjà débloqués et pour lesquels
+        // la quantité de produit possédé est supérieure au seuil. Pour ceux là débloquer le pallier
+        // et appliquer le bonus
+        for (PallierType p : product.getPalliers().getPallier()) {
+            if (!p.isUnlocked() && product.getQuantite() >= p.getSeuil()) {
+                p.setUnlocked(true);
+                appliquerBonus(p,world);
+            }
         }
         
-        //application des bonus en fonction des seuils sur les chaussures
-        if(newproduct.getQuantite()>=15 && newproduct.getId()==2){ 
-            PallierType p =  newproduct.getPalliers().getPallier().get(0);// on recupère le premier pallier de la liste des palliers du produit 
-            p.setUnlocked(true);// on le débloque
-            newproduct.setVitesse(newproduct.getVitesse()/2); 
-        } 
-        else if (newproduct.getQuantite()>=30 && newproduct.getId()==2) {
-            PallierType p =  newproduct.getPalliers().getPallier().get(1);//on recupère le deuxième pallier de la liste des palliers du produit 
-            p.setUnlocked(true);// on le débloque
-            double r = newproduct.getRevenu()*2;
-            newproduct.setRevenu(r);//on met a jour le revenu du produit
-        }
-        else if (newproduct.getQuantite()>=45 && newproduct.getId()==2){
-            PallierType p =  newproduct.getPalliers().getPallier().get(2);//on recupère le troisème pallier de la liste des palliers du produit 
-            p.setUnlocked(true); 
-             /*newproduct*/
-            world.setAngelbonus(4);
-        }
-        
-        //application des bonus en fonction des seuils sur les bijoux
-        if(newproduct.getQuantite()>=10 && newproduct.getId()==3){ 
-            PallierType p =  newproduct.getPalliers().getPallier().get(0);// on recupère le premier pallier de la liste des palliers du produit 
-            p.setUnlocked(true);// on le débloque
-            newproduct.setVitesse(newproduct.getVitesse()/2); 
-        } 
-        else if (newproduct.getQuantite()>=20 && newproduct.getId()==3) {
-            PallierType p =  newproduct.getPalliers().getPallier().get(1);//on recupère le deuxième pallier de la liste des palliers du produit 
-            p.setUnlocked(true);// on le débloque
-            double r = newproduct.getRevenu()*2;
-            newproduct.setRevenu(r);//on met a jour le revenu du produit
-        }
-        else if (newproduct.getQuantite()>=30 && newproduct.getId()==3){
-            PallierType p =  newproduct.getPalliers().getPallier().get(2);//on recupère le troisème pallier de la liste des palliers du produit 
-            p.setUnlocked(true);// 
-             /*newproduct*/
-            world.setAngelbonus(4);
-        }
-        
-        //application des bonus en fonction des allunlocks
-        if(newproduct.getQuantite()>=50){ 
-            PallierType p =  (PallierType) newproduct.getPalliers().getPallier(); 
-            p.setUnlocked(true);// on le débloque
-            newproduct.setVitesse(newproduct.getVitesse()/2); 
-        } 
-        else if (newproduct.getQuantite()>=60 ) {
-            PallierType p =  (PallierType) newproduct.getPalliers().getPallier(); 
-            p.setUnlocked(true);// on le débloque
-            double r = newproduct.getRevenu()*2;
-            newproduct.setRevenu(r);//on met a jour le revenu du produit
-        }
-        else if (newproduct.getQuantite()>=80){
-            PallierType p =  (PallierType) newproduct.getPalliers().getPallier(); 
-            p.setUnlocked(true);
-             /*newproduct*/
-            world.setAngelbonus(4);
-        }
         // sauvegarder les changements du monde
         saveWordlToXml(world, username);
         return true;
