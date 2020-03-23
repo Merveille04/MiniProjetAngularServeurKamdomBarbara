@@ -131,6 +131,7 @@ public class Services {
         }
         // sinon on applique le bonus sur tous les produits
         else for (ProductType product: world.getProducts().getProduct()) {
+            if (product.getQuantite()>= p.getSeuil())
            appliquerBonusSurProduit(p, product, world);
         }
     }
