@@ -36,6 +36,16 @@ public class Services {
         
     }
     
+    //remettre à zéro en rechargeant le monde original (celui
+//servi à un nouveau joueur) et initialiser ses propriétés score, totalangels et
+//activeangels aux mêmes valeurs que le monde en cours de reset. 
+    public void reset(String username) throws JAXBException{
+        World world = getWorld(username);
+        int angesSub = (int) ((150* Math.sqrt(world.getScore()/Math.pow(10, 15)))-world.getTotalangels());
+        world.setTotalangels(angesSub + world.getTotalangels());
+        world.setActiveangels(angesSub + world.getActiveangels());  
+    }
+    
     public void updateScore(World world) {
         
         //mise à jour du score
@@ -109,7 +119,7 @@ public class Services {
                 product.setRevenu(product.getRevenu() * p.getRatio());
                 break;
         }
-
+        updateScore(world);
     }
 
     void appliquerBonus(PallierType p, World world) {
@@ -122,6 +132,31 @@ public class Services {
         // sinon on applique le bonus sur tous les produits
         else for (ProductType product: world.getProducts().getProduct()) {
            appliquerBonusSurProduit(p, product, world);
+        }
+    }
+    
+    //application des upgrades
+    void upgrade(PallierType p, ProductType product){
+        switch (p.getTyperatio()) {
+            case VITESSE:
+                product.setVitesse((int) (product.getVitesse() / p.getRatio()));
+                break;
+            case GAIN:
+                product.setRevenu(product.getRevenu() * p.getRatio());
+                break;
+        }
+    }
+    
+    void appliquerUpgrade(PallierType p, World world){
+        int id = p.getIdcible();
+        // si id ne vaut pas zéro, on applique le bonus que sur le produit indiqué
+        if (id != 0) {
+            ProductType product = findProductById(world, p.getIdcible());
+            upgrade(p, product);
+        }
+        // sinon on applique le bonus sur tous les produits
+        else for (ProductType product: world.getProducts().getProduct()) {
+           upgrade(p, product);
         }
     }
 
@@ -170,6 +205,16 @@ public class Services {
             if (!p.isUnlocked() && product.getQuantite() >= p.getSeuil()) {
                 p.setUnlocked(true);
                 appliquerBonus(p,world);
+            }
+        }
+        
+        //application des upgrades
+        for (PallierType p : product.getPalliers().getPallier()) {
+            if (!p.isUnlocked() && world.getMoney() >= p.getSeuil()) {
+                p.setUnlocked(true);
+                appliquerUpgrade(p,world);
+                world.setMoney(world.getMoney()-p.getSeuil());
+                updateScore(world);
             }
         }
         
