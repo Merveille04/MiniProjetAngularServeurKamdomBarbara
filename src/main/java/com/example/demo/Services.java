@@ -43,7 +43,8 @@ public class Services {
         World world = getWorld(username);
         int angesSub = (int) ((150* Math.sqrt(world.getScore()/Math.pow(10, 15)))-world.getTotalangels());
         world.setTotalangels(angesSub + world.getTotalangels());
-        world.setActiveangels(angesSub + world.getActiveangels());  
+        world.setActiveangels(angesSub + world.getActiveangels());
+        updateScore(world);
     }
     
     public void updateScore(World world) {
@@ -77,8 +78,10 @@ public class Services {
               n= nbreP+1;
             }
            }
-         world.setMoney(world.getMoney()+(n*p.getRevenu()));// mise a jour de l 'argent qui peut augmenter ou diminuer
-         world.setScore(world.getScore()+(n*p.getRevenu()));// mise a jour du score qui lui augmente toujours
+           // modification du calcul du revenu en applicant le AngelsBonus
+          double  nouveauRevenu = p.getQuantite()*p.getRevenu()*(1+ world.getActiveangels()*world.getAngelbonus()/100);
+         world.setMoney(world.getMoney()+(n*nouveauRevenu));// mise a jour de l 'argent qui peut augmenter ou diminuer
+         world.setScore(world.getScore()+(n*nouveauRevenu));// mise a jour du score qui lui augmente toujours
        }
       world.setLastupdate(System.currentTimeMillis());  
     }
@@ -124,40 +127,44 @@ public class Services {
 
     void appliquerBonus(PallierType p, World world) {
         int id = p.getIdcible();
+        //p = (PallierType) world.getAllunlocks().getPallier();
         // si id ne vaut pas zéro, on applique le bonus que sur le produit indiqué
-        if (id != 0) {
+        if (id != 0 ) {
             ProductType product = findProductById(world, p.getIdcible());
             appliquerBonusSurProduit(p, product, world);
         }
         // sinon on applique le bonus sur tous les produits
         else for (ProductType product: world.getProducts().getProduct()) {
-            if (product.getQuantite()>= p.getSeuil())
            appliquerBonusSurProduit(p, product, world);
         }
     }
     
-    //application des upgrades
-    void upgrade(PallierType p, ProductType product){
-        switch (p.getTyperatio()) {
-            case VITESSE:
-                product.setVitesse((int) (product.getVitesse() / p.getRatio()));
-                break;
-            case GAIN:
-                product.setRevenu(product.getRevenu() * p.getRatio());
-                break;
-        }
+    
+    void updateUpgrade(String username) throws JAXBException{
+        World world = getWorld(username);
+        for ( PallierType p : world.getUpgrades().getPallier()) {
+            if (!p.isUnlocked() && world.getMoney() >= p.getSeuil()) {
+                p.setUnlocked(true);
+                appliquerBonus(p, world);
+                world.setMoney(world.getMoney()-p.getSeuil());
+                updateScore(world);
+            }
+        }   
     }
     
-    void appliquerUpgrade(PallierType p, World world){
-        int id = p.getIdcible();
-        // si id ne vaut pas zéro, on applique le bonus que sur le produit indiqué
-        if (id != 0) {
-            ProductType product = findProductById(world, p.getIdcible());
-            upgrade(p, product);
-        }
-        // sinon on applique le bonus sur tous les produits
-        else for (ProductType product: world.getProducts().getProduct()) {
-           upgrade(p, product);
+    void updateAngelUpgrades(String username) throws JAXBException{
+        World world = getWorld(username);
+        
+        for (PallierType p: world.getAngelupgrades().getPallier()){
+            double angesRestants = world.getActiveangels()-p.getSeuil();
+            if(angesRestants>0){
+                appliquerBonus(p, world);
+          world.setActiveangels(world.getActiveangels()-p.getSeuil());
+                updateScore(world);
+            }
+            else{
+                updateScore(world);
+            }
         }
     }
 
@@ -209,15 +216,13 @@ public class Services {
             }
         }
         
-        //application des upgrades
-        for (PallierType p : product.getPalliers().getPallier()) {
-            if (!p.isUnlocked() && world.getMoney() >= p.getSeuil()) {
-                p.setUnlocked(true);
-                appliquerUpgrade(p,world);
-                world.setMoney(world.getMoney()-p.getSeuil());
-                updateScore(world);
-            }
-        }
+        //appliquer les allUnlocks
+      for (PallierType p: world.getAllunlocks().getPallier()) {
+          if (!p.isUnlocked() && product.getQuantite() >= p.getSeuil()){
+              p.setUnlocked(true);
+              appliquerBonus(p, world);
+          }
+      } 
         
         // sauvegarder les changements du monde
         saveWordlToXml(world, username);
