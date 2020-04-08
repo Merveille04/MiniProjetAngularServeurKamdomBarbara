@@ -150,7 +150,8 @@ public class Services {
                 appliquerBonus(p, world);
                 world.setMoney(world.getMoney()-p.getSeuil());
             }
-        }   
+        }
+        saveWordlToXml(world, username);
     }
 
     // pareil pour le angelupgrades. Quelle est l'upgrade que vous appliquez ?
@@ -162,12 +163,9 @@ public class Services {
             if(angesRestants>0){
                 appliquerBonus(p, world);
           world.setActiveangels(world.getActiveangels()-p.getSeuil());
-                updateScore(world);
-            }
-            else{
-                updateScore(world);
             }
         }
+        saveWordlToXml(world, username);
     }
 
     // prend en paramètre le pseudo du joueur et le produit
