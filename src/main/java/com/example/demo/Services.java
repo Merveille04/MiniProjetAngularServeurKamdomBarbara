@@ -28,10 +28,11 @@ import javax.xml.bind.Unmarshaller;
  */
 public class Services {
 
-    public World getWorld(String username) throws JAXBException  {
+    public World getWorld(String username) throws Exception  {
         World world;
         world= readWorldFromXml(username);
         updateScore(world);
+        saveWordlToXml(world, username);
         return world;
         
     }
@@ -39,12 +40,12 @@ public class Services {
     //remettre à zéro en rechargeant le monde original (celui
 //servi à un nouveau joueur) et initialiser ses propriétés score, totalangels et
 //activeangels aux mêmes valeurs que le monde en cours de reset. 
-    public void reset(String username) throws JAXBException{
+    public void reset(String username) throws Exception{
         World world = getWorld(username);
         int angesSub = (int) ((150* Math.sqrt(world.getScore()/Math.pow(10, 15)))-world.getTotalangels());
         world.setTotalangels(angesSub + world.getTotalangels());
         world.setActiveangels(angesSub + world.getActiveangels());
-        updateScore(world);
+        saveWordlToXml(world, username);
     }
     
     public void updateScore(World world) {
@@ -122,7 +123,6 @@ public class Services {
                 product.setRevenu(product.getRevenu() * p.getRatio());
                 break;
         }
-        updateScore(world);
     }
 
     void appliquerBonus(PallierType p, World world) {
@@ -139,20 +139,22 @@ public class Services {
         }
     }
     
-    
-    void updateUpgrade(String username) throws JAXBException{
+
+    // updateUpgrade doit prendre en paramètre l'upgrade (le PallierTYpe) à appliquer
+    // ce n'est pas le cas ici
+    void updateUpgrade(String username) throws Exception{
         World world = getWorld(username);
         for ( PallierType p : world.getUpgrades().getPallier()) {
             if (!p.isUnlocked() && world.getMoney() >= p.getSeuil()) {
                 p.setUnlocked(true);
                 appliquerBonus(p, world);
                 world.setMoney(world.getMoney()-p.getSeuil());
-                updateScore(world);
             }
         }   
     }
-    
-    void updateAngelUpgrades(String username) throws JAXBException{
+
+    // pareil pour le angelupgrades. Quelle est l'upgrade que vous appliquez ?
+    void updateAngelUpgrades(String username) throws Exception{
         World world = getWorld(username);
         
         for (PallierType p: world.getAngelupgrades().getPallier()){
@@ -172,7 +174,7 @@ public class Services {
 // sur lequel une action a eu lieu (lancement manuel de production ou
 // achat d’une certaine quantité de produit)
 // renvoie false si l’action n’a pas pu être traitée
-    public Boolean updateProduct(String username, ProductType newproduct) throws JAXBException, FileNotFoundException {
+    public Boolean updateProduct(String username, ProductType newproduct) throws Exception {
         // aller chercher le monde qui correspond au joueur
         World world = getWorld(username);
         
@@ -239,7 +241,7 @@ public class Services {
 
     // prend en paramètre le pseudo du joueur et le manager acheté.
 // renvoie false si l’action n’a pas pu être traitée
-    public Boolean updateManager(String username, PallierType newmanager) throws JAXBException, FileNotFoundException {
+    public Boolean updateManager(String username, PallierType newmanager) throws Exception {
         // aller chercher le monde qui correspond au joueur
         World world = getWorld(username);
         // trouver dans ce monde, le manager équivalent à celui passé
