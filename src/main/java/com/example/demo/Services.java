@@ -138,33 +138,45 @@ public class Services {
            appliquerBonusSurProduit(p, product, world);
         }
     }
-    
+    private PallierType findUpgradeByName(World world, String name) {
+        for (PallierType p : world.getUpgrades().getPallier()) 
+            if (p.getName() == name) 
+                return p;
+        return null;
+    }
 
     // updateUpgrade doit prendre en paramètre l'upgrade (le PallierTYpe) à appliquer
     // ce n'est pas le cas ici
-    void updateUpgrade(String username) throws Exception{
+    void updateUpgrade(String username,PallierType newPallier) throws Exception{
         World world = getWorld(username);
-        for ( PallierType p : world.getUpgrades().getPallier()) {
+        PallierType p = findUpgradeByName(world, newPallier.getName());
+        
             if (!p.isUnlocked() && world.getMoney() >= p.getSeuil()) {
                 p.setUnlocked(true);
                 appliquerBonus(p, world);
                 world.setMoney(world.getMoney()-p.getSeuil());
             }
-        }
+        
         saveWordlToXml(world, username);
+    }
+private PallierType findAngelUpgradeByName(World world, String name) {
+        for (PallierType p : world.getAngelupgrades().getPallier()) 
+            if (p.getName() == name) 
+                return p;
+        return null;
     }
 
     // pareil pour le angelupgrades. Quelle est l'upgrade que vous appliquez ?
-    void updateAngelUpgrades(String username) throws Exception{
+    void updateAngelUpgrades(String username,PallierType newPallier) throws Exception{
         World world = getWorld(username);
+        PallierType p = findAngelUpgradeByName(world, newPallier.getName());
         
-        for (PallierType p: world.getAngelupgrades().getPallier()){
             double angesRestants = world.getActiveangels()-p.getSeuil();
             if(angesRestants>0){
                 appliquerBonus(p, world);
           world.setActiveangels(world.getActiveangels()-p.getSeuil());
             }
-        }
+            
         saveWordlToXml(world, username);
     }
 

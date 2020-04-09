@@ -8,6 +8,7 @@ package com.example.demo;
 import com.example.demo.generated.PallierType;
 import com.example.demo.generated.ProductType;
 import com.google.gson.Gson;
+import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import javax.servlet.http.HttpServletRequest;
 import static javax.swing.text.html.FormSubmitEvent.MethodType.GET;
 import javax.ws.rs.GET;
@@ -40,11 +41,39 @@ public class Webservices {
     String username = request.getHeader("X-user");
     return Response.ok(services.getWorld(username)).build();
     }
-    public void PUTProduct(String data){
+    
+    public void PUTProduct(@Context HttpServletRequest request,String data) throws Exception{
         ProductType product = new Gson().fromJson(data, ProductType.class);
+        String username = request.getHeader("X-user");
+        services.updateProduct(username, product);
     }
-    public void PUTManager(String data){
+    
+    public void PUTManager(@Context HttpServletRequest request,String data) throws Exception{
         PallierType manager = new Gson().fromJson(data, PallierType.class);
+        String username = request.getHeader("X-user");
+        services.updateManager(username, manager);
+    }
+    
+    public void GETWorld(@Context HttpServletRequest request) throws Exception{
+        String username = request.getHeader("X-user");
+        services.getWorld(username);
+    }
+    
+    public void PUTUpgrade(@Context HttpServletRequest request, String data) throws Exception{
+        PallierType upgrade = new Gson().fromJson(data, PallierType.class);
+        String username = request.getHeader("X-user");
+        services.updateUpgrade(username, upgrade);
+    }
+    
+    public void PUTAngelUpgrade(@Context HttpServletRequest request,String data) throws Exception{
+        PallierType angelUpgrade = new Gson().fromJson(data, PallierType.class);
+        String username = request.getHeader("X-user");
+        services.updateAngelUpgrades(username, angelUpgrade);
+    }
+    
+    public void DELETEWorld(@Context HttpServletRequest request) throws Exception{
+        String username = request.getHeader("X-user");
+       services.reset(username);
     }
   
 }
