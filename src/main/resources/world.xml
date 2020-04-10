@@ -22,7 +22,7 @@ and open the template in the editor.
             <id>1</id>
             <name>Orange</name>
             <logo>orange.jpg</logo>
-            <cout>3</cout>
+            <cout>1</cout>
             <croissance>1.07</croissance>
             <revenu>2</revenu>
             <vitesse>3000</vitesse>
@@ -33,7 +33,7 @@ and open the template in the editor.
                 <pallier>
                     <name>orange Step 1</name>
                     <logo>1.png</logo>
-                    <seuil>10</seuil>
+                    <seuil>5</seuil>
                     <!-- En dessous vous devez mettre l'identifiant du produit qui est la cible du bonus. Je mets 1 pour signaler que c'est l'orange
                     si on met 0, ca veut dire que tous les produits sont concernés par  le bonus -->
                     <idcible>1</idcible>
@@ -48,7 +48,7 @@ and open the template in the editor.
                 <pallier>
                     <name>orange Step 2</name>
                     <logo>2.png</logo>
-                    <seuil>20</seuil>
+                    <seuil>10</seuil>
                     <idcible>1</idcible>
                     <ratio>2</ratio>
                     <typeratio>gain</typeratio>
@@ -57,7 +57,7 @@ and open the template in the editor.
                 <pallier>
                     <name>orange Step 3</name>
                     <logo>3.png</logo>
-                    <seuil>30</seuil>
+                    <seuil>20</seuil>
                     <idcible>1</idcible>
                     <ratio>2</ratio>
                     <typeratio>ange</typeratio>
@@ -69,7 +69,7 @@ and open the template in the editor.
             <id>2</id>
             <name>Chaussures</name>
             <logo>chaussures.jpg</logo>
-            <cout>8</cout>
+            <cout>2</cout>
             <croissance>1.09</croissance>
             <revenu>5</revenu>
             <vitesse>3000</vitesse>
@@ -80,7 +80,7 @@ and open the template in the editor.
                 <pallier>
                     <name>chaussures Step 1</name>
                     <logo>1.png</logo>
-                    <seuil>15</seuil>
+                    <seuil>5</seuil>
                     <idcible>2</idcible>
                     <ratio>2</ratio>
                     <typeratio>vitesse</typeratio>
@@ -89,7 +89,7 @@ and open the template in the editor.
                 <pallier>
                     <name>chaussures Step 2</name>
                     <logo>2.png</logo>
-                    <seuil>30</seuil>
+                    <seuil>10</seuil>
                     <idcible>2</idcible>
                     <ratio>2</ratio>
                     <typeratio>gain</typeratio>
@@ -98,7 +98,7 @@ and open the template in the editor.
                 <pallier>
                     <name>chaussures Step 3</name>
                     <logo>3.png</logo>
-                    <seuil>45</seuil>
+                    <seuil>20</seuil>
                     <idcible>2</idcible>
                     <ratio>2</ratio>
                     <typeratio>ange</typeratio>
@@ -110,7 +110,7 @@ and open the template in the editor.
             <id>3</id>
             <name>Bijoux</name>
             <logo>D:\Mes cours\4A\Mini Projet Angular\bijoux.jpg</logo>
-            <cout>12</cout>
+            <cout>5</cout>
             <croissance>2</croissance>
             <revenu>10</revenu>
             <vitesse>4000</vitesse>
@@ -121,7 +121,7 @@ and open the template in the editor.
                 <pallier>
                     <name>bijoux Step 1</name>
                     <logo>1.png</logo>
-                    <seuil>10</seuil>
+                    <seuil>5</seuil>
                     <idcible>3</idcible>
                     <ratio>2</ratio>
                     <typeratio>vitesse</typeratio>
@@ -130,7 +130,7 @@ and open the template in the editor.
                 <pallier>
                     <name>bijoux Step 2</name>
                     <logo>2.png</logo>
-                    <seuil>20</seuil>
+                    <seuil>10</seuil>
                     <idcible>3</idcible>
                     <ratio>2</ratio>
                     <typeratio>gain</typeratio>
@@ -139,7 +139,7 @@ and open the template in the editor.
                 <pallier>
                     <name>bijoux Step 3</name>
                     <logo>3.png</logo>
-                    <seuil>30</seuil>
+                    <seuil>15</seuil>
                     <idcible>3</idcible>
                     <ratio>2</ratio>
                     <typeratio>ange</typeratio>

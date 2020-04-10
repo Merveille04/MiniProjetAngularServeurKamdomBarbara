@@ -53,6 +53,7 @@ public class Webservices {
         ProductType product = new Gson().fromJson(data, ProductType.class);
         String username = request.getHeader("X-user");
         services.updateProduct(username, product);
+        System.out.println(username+""+product);
     }
     @PUT
     @Path("managerUpdate")
@@ -71,10 +72,8 @@ public class Webservices {
     @PUT
     @Path("upgrade")
     public void PUTUpgrade(@Context HttpServletRequest request, String data) throws Exception{
-        System.out.println("teeeeeesssssttttttttt");
         PallierType upgrade = new Gson().fromJson(data, PallierType.class);
         String username = request.getHeader("X-user");
-         System.out.println("teeeeeesssssttttttttt"+upgrade.getName());
         services.updateUpgrade(username, upgrade);
     }
     @PUT

@@ -33,8 +33,6 @@ public class Services {
         world= readWorldFromXml(username);
         updateScore(world);
         saveWordlToXml(world, username);
-        System.out.println(username);
-        System.out.println(world);
         return world;
         
     }
@@ -160,7 +158,6 @@ public class Services {
                 appliquerBonus(p, world);
                 world.setMoney(world.getMoney()-p.getSeuil());           
             }
-        System.out.println(world.getMoney()-p.getSeuil());
         saveWordlToXml(world, username);
     }
 private PallierType findAngelUpgradeByName(World world, String name) {
@@ -203,13 +200,22 @@ private PallierType findAngelUpgradeByName(World world, String name) {
         // que le joueur a acheté une certaine quantité de ce produit
         // sinon c’est qu’il s’agit d’un lancement de production.
         int qtchange = newproduct.getQuantite() - product.getQuantite();
+        
+        System.out.println(newproduct.getQuantite() - product.getQuantite());
+        
         if (qtchange > 0) {
             // soustraire de l'argent du joueur le cout de la quantité
             // achetée et mettre à jour la quantité de product
             world.setMoney(world.getMoney() - product.getCout()* ( (1 - Math.pow(product.getCroissance(),qtchange)) /
                     (1 - product.getCroissance())) );
-         
-            product.setQuantite(product.getQuantite()+qtchange);        
+            
+            System.out.println(world.getMoney() - product.getCout()* ( (1 - Math.pow(product.getCroissance(),qtchange)) /
+                    (1 - product.getCroissance())));
+            
+            product.setQuantite(product.getQuantite()+qtchange); 
+            
+            System.out.println(product.getQuantite()+qtchange);
+            
             product.setCout(product.getCout() * Math.pow(product.getCroissance(), qtchange));
             //regler le last update sur l'heure courante
             world.setLastupdate(System.currentTimeMillis());
