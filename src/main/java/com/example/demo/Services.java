@@ -33,6 +33,8 @@ public class Services {
         world= readWorldFromXml(username);
         updateScore(world);
         saveWordlToXml(world, username);
+        System.out.println(username);
+        System.out.println(world);
         return world;
         
     }
@@ -128,7 +130,7 @@ public class Services {
     void appliquerBonus(PallierType p, World world) {
         int id = p.getIdcible();
         //p = (PallierType) world.getAllunlocks().getPallier();
-        // si id ne vaut pas zéro, on applique le bonus que sur le produit indiqué
+        // si id ne vaut pas zéro on applique le bonus que sur le produit indiqué
         if (id != 0 ) {
             ProductType product = findProductById(world, p.getIdcible());
             appliquerBonusSurProduit(p, product, world);
@@ -139,9 +141,11 @@ public class Services {
         }
     }
     private PallierType findUpgradeByName(World world, String name) {
-        for (PallierType p : world.getUpgrades().getPallier()) 
-            if (p.getName() == name) 
+        for (PallierType p : world.getUpgrades().getPallier()){        
+            if (p.getName().equals(name)) {
                 return p;
+            }
+        }          
         return null;
     }
 
@@ -154,14 +158,14 @@ public class Services {
             if (!p.isUnlocked() && world.getMoney() >= p.getSeuil()) {
                 p.setUnlocked(true);
                 appliquerBonus(p, world);
-                world.setMoney(world.getMoney()-p.getSeuil());
+                world.setMoney(world.getMoney()-p.getSeuil());           
             }
-        
+        System.out.println(world.getMoney()-p.getSeuil());
         saveWordlToXml(world, username);
     }
 private PallierType findAngelUpgradeByName(World world, String name) {
         for (PallierType p : world.getAngelupgrades().getPallier()) 
-            if (p.getName() == name) 
+            if (p.getName().equals(name)) 
                 return p;
         return null;
     }

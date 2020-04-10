@@ -10,7 +10,7 @@ and open the template in the editor.
     xsi:noNamespaceSchemaLocation='worldSchema.xsd'>
     <name>Terre</name>
     <logo>terre.jpg</logo>
-    <money>10</money>
+    <money>100</money>
     <score>0</score>
     <totalangels>0</totalangels>
     <activeangels>0</activeangels>
@@ -185,7 +185,7 @@ and open the template in the editor.
             <name>Oranges Upgrades</name>
             <logo>orange.jpg</logo>
             <!-- en dessous, la valeur 5000 indique qu'il faudra dépenser 5000 euros pour pouvoir acheter ce bonus -->
-            <seuil>50</seuil>
+            <seuil>15</seuil>
             <idcible>1</idcible>
             <!-- et que le bonus multipliera par 2 les revenus du produit -->
             <ratio>2</ratio>
@@ -195,7 +195,7 @@ and open the template in the editor.
         <pallier>
             <name>Chaussures Upgrades</name>
             <logo>chaussures.jpg</logo>
-            <seuil>70</seuil>
+            <seuil>20</seuil>
             <idcible>2</idcible>
             <ratio>4</ratio>
             <typeratio>vitesse</typeratio>
@@ -204,7 +204,7 @@ and open the template in the editor.
         <pallier>
             <name>Bijoux Upgrades</name>
             <logo>bijoux.jpg</logo>
-            <seuil>100</seuil>
+            <seuil>35</seuil>
             <idcible>3</idcible>
             <ratio>5</ratio>
             <typeratio>vitesse</typeratio>
@@ -213,7 +213,7 @@ and open the template in the editor.
         <pallier>
             <name>Cash Upgrades</name>
             <logo>argent.jpg</logo>
-            <seuil>150</seuil>
+            <seuil>50</seuil>
             <idcible>0</idcible>
             <ratio>3</ratio>
             <typeratio>gain</typeratio>
@@ -222,7 +222,7 @@ and open the template in the editor.
         <pallier>
             <name>Golg Upgrades</name>
             <logo>or.jpg</logo>
-            <seuil>200</seuil>
+            <seuil>70</seuil>
             <idcible>0</idcible>
             <ratio>5</ratio>
             <typeratio>gain</typeratio>
@@ -233,7 +233,7 @@ and open the template in the editor.
         <pallier>
             <name>Angel Upgrade 1</name>
             <logo>ange.jpg</logo>
-            <seuil>100</seuil>
+            <seuil>20</seuil>
             <idcible>-1</idcible>
             <ratio>2</ratio>
             <typeratio>ange</typeratio>
@@ -242,7 +242,7 @@ and open the template in the editor.
         <pallier>
             <name>Angel Upgrade 2</name>
             <logo>ange.jpg</logo>
-            <seuil>200</seuil>
+            <seuil>40</seuil>
             <idcible>-1</idcible>
             <ratio>4</ratio>
             <typeratio>ange</typeratio>
@@ -251,7 +251,7 @@ and open the template in the editor.
         <pallier>
             <name>Angel Upgrade 3</name>
             <logo>ange.jpg</logo>
-            <seuil>300</seuil>
+            <seuil>60</seuil>
             <idcible>-1</idcible>
             <ratio>6</ratio>
             <typeratio>ange</typeratio>
@@ -262,7 +262,7 @@ and open the template in the editor.
         <pallier>
             <name>Maria</name>
             <logo>maria.jpg</logo>
-            <seuil>200</seuil>
+            <seuil>20</seuil>
             <idcible>1</idcible>
             <ratio></ratio>
             <typeratio></typeratio>
@@ -271,7 +271,7 @@ and open the template in the editor.
         <pallier>
             <name>Jerry</name>
             <logo>jerry.jpg</logo>
-            <seuil>300</seuil>
+            <seuil>30</seuil>
             <idcible>2</idcible>
             <ratio></ratio>
             <typeratio></typeratio>
@@ -280,7 +280,7 @@ and open the template in the editor.
         <pallier>
             <name>Pedro</name>
             <logo>pedro.png</logo>
-            <seuil>400</seuil>
+            <seuil>40</seuil>
             <idcible>3</idcible>
             <ratio></ratio>
             <typeratio></typeratio>
