@@ -172,12 +172,13 @@ private PallierType findAngelUpgradeByName(World world, String name) {
         World world = getWorld(username);
         PallierType p = findAngelUpgradeByName(world, newPallier.getName());
         
-            double angesRestants = world.getActiveangels()-p.getSeuil();
-            if(angesRestants>0){
+            if(world.getActiveangels()-p.getSeuil()>0){
                 appliquerBonus(p, world);
           world.setActiveangels(world.getActiveangels()-p.getSeuil());
-            }
-            
+          
+          System.out.println(world.getActiveangels()-p.getSeuil()); 
+          
+            } 
         saveWordlToXml(world, username);
     }
 
