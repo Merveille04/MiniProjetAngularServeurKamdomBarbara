@@ -77,11 +77,12 @@ public class Webservices {
         services.updateUpgrade(username, upgrade);
     }
     @PUT
-    @Path("angelUpgradeUpdate")
+    @Path("angelUpgrade")
     public void PUTAngelUpgrade(@Context HttpServletRequest request,String data) throws Exception{
         PallierType angelUpgrade = new Gson().fromJson(data, PallierType.class);
         String username = request.getHeader("X-user");
         services.updateAngelUpgrades(username, angelUpgrade);
+        System.out.println(username+""+angelUpgrade);
     }
     
     public void DELETEWorld(@Context HttpServletRequest request) throws Exception{

@@ -12,8 +12,8 @@ and open the template in the editor.
     <logo>terre.jpg</logo>
     <money>100</money>
     <score>0</score>
-    <totalangels>0</totalangels>
-    <activeangels>0</activeangels>
+    <totalangels>50</totalangels>
+    <activeangels>50</activeangels>
     <!-- le gain du aux anges s'exprime avec un entier qui détermine le pourcentage initial (ici 2%) -->
     <angelbonus>2</angelbonus>
     <lastupdate>0</lastupdate>
