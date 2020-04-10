@@ -175,9 +175,7 @@ private PallierType findAngelUpgradeByName(World world, String name) {
             if(world.getActiveangels()-p.getSeuil()>0){
                 appliquerBonus(p, world);
           world.setActiveangels(world.getActiveangels()-p.getSeuil());
-          
-          System.out.println(world.getActiveangels()-p.getSeuil()); 
-          
+
             } 
         saveWordlToXml(world, username);
     }
@@ -202,20 +200,13 @@ private PallierType findAngelUpgradeByName(World world, String name) {
         // sinon c’est qu’il s’agit d’un lancement de production.
         int qtchange = newproduct.getQuantite() - product.getQuantite();
         
-        System.out.println(newproduct.getQuantite() - product.getQuantite());
-        
         if (qtchange > 0) {
             // soustraire de l'argent du joueur le cout de la quantité
             // achetée et mettre à jour la quantité de product
             world.setMoney(world.getMoney() - product.getCout()* ( (1 - Math.pow(product.getCroissance(),qtchange)) /
                     (1 - product.getCroissance())) );
             
-            System.out.println(world.getMoney() - product.getCout()* ( (1 - Math.pow(product.getCroissance(),qtchange)) /
-                    (1 - product.getCroissance())));
-            
             product.setQuantite(product.getQuantite()+qtchange); 
-            
-            System.out.println(product.getQuantite()+qtchange);
             
             product.setCout(product.getCout() * Math.pow(product.getCroissance(), qtchange));
             //regler le last update sur l'heure courante

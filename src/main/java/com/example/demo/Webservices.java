@@ -53,7 +53,7 @@ public class Webservices {
         ProductType product = new Gson().fromJson(data, ProductType.class);
         String username = request.getHeader("X-user");
         services.updateProduct(username, product);
-        System.out.println(username+""+product);
+  
     }
     @PUT
     @Path("managerUpdate")
@@ -82,7 +82,6 @@ public class Webservices {
         PallierType angelUpgrade = new Gson().fromJson(data, PallierType.class);
         String username = request.getHeader("X-user");
         services.updateAngelUpgrades(username, angelUpgrade);
-        System.out.println(username+""+angelUpgrade);
     }
     
     public void DELETEWorld(@Context HttpServletRequest request) throws Exception{
